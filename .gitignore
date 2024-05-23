@@ -2,7 +2,7 @@
 .env
 media
 static
-
+.idea
 
 
 db.sqlite3
