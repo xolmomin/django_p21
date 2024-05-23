@@ -1,0 +1,37 @@
+
+python(model)-db(table)
+
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser
+python3 manage.py runserver 0.0.0.0:8000
+python3 manage.py runserver 0:8000
+./manage.py runserver 0:8000
+
+
+python3 manage.py --help
+
+10.10.1.159:8000
+apps
+
+python3 manage.py startapp apps
+
+
+
+
+1. https://books.agiliq.com/projects/django-admin-cookbook/en/latest/
+2.
+
+https://bootdey.com/snippets/view/company-team-list-with-image-a-social-links
+https://bootdey.com/snippets/view/Latest-arrivals-products
+https://bootdey.com/snippets/view/home-team-with-hover-effect
+https://bootdey.com/snippets/view/ecommerce-products-with-image-description-colors-and-add-button
+https://bootdey.com/snippets/view/Shop-product-list
+
+
+
+
+
+
+
