@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="{% url 'create_index' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="price" placeholder="Price">
+    <input type="text" name="category" placeholder="category id">
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

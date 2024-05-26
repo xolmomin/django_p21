@@ -34,4 +34,28 @@ https://bootdey.com/snippets/view/Shop-product-list
 
 
 
+CRUD
+
+models.py  + methods
+class meta
+
+
+
+https://bootdey.com/snippets/view/Shop-product-list
+(category bilan, + search, form)
+
+
+class based
+
+
+resources
+1. https://docs.djangoproject.com/en/5.0/ref/models/options/
+2. https://docs.djangoproject.com/en/5.1/ref/models/fields/
+3. https://docs.djangoproject.com/en/5.0/ref/models/fields/#field-types
+4. https://books.agiliq.com/projects/django-admin-cookbook/en/latest/ (ADMIN )
+5. https://books.agiliq.com/projects/django-orm-cookbook/en/latest/index.html# (ORM)
+6. https://docs.djangoproject.com/en/5.0/ref/django-admin/ (commands)
+
+
+django mptt (tree)
 

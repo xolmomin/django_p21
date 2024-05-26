@@ -1,31 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 
-from apps.models import Product, Category, Member
+from apps.models import Product, Category
 
 
 def index_view(request):
-    search = request.GET.get('search')
-    if search:
-        products = Product.objects.filter(category__name__icontains=search)
+    category = request.GET.get('category')
+    if category:
+        products = Product.objects.filter(category__slug=category)
     else:
         products = Product.objects.all()
     context = {
         "products": products,
+        "categories": Category.objects.all(),
     }
     return render(request, 'apps/index.html', context)
 
 
-def main_view(request):
-    categories = Category.objects.all()
-    context = {
-        'categories': categories
-    }
-    return render(request, 'apps/main.html', context)
+def create_view(request):
+    if request.method == 'GET':
+        return render(request, 'apps/create.html')
 
-
-def member_view(request):
-    members = Member.objects.all()
-    context = {
-        'members': members
-    }
-    return render(request, 'apps/member.html', context)
+    name = request.POST.get('name')
+    price = request.POST.get('price')
+    category = request.POST.get('category')
+    Product.objects.create(name=name, price=price, category_id=category)
+    return redirect(reverse('index'))

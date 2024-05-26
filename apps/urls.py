@@ -1,12 +1,8 @@
-from django.conf.urls.static import static
-from django.contrib import admin
 from django.urls import path
 
-from apps.views import index_view, main_view, member_view
-from root.settings import MEDIA_URL, MEDIA_ROOT
+from apps.views import index_view, create_view
 
 urlpatterns = [
-    path('', main_view, name='main'),
-    path('index', index_view, name='index'),
-    path('member', member_view)
+    path('', index_view, name='index'),
+    path('create', create_view, name='create_index')
 ]
