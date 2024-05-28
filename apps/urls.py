@@ -1,8 +1,7 @@
 from django.urls import path
-
-from apps.views import index_view, create_view
+from apps.views import MainTemplateView, StudentListView
 
 urlpatterns = [
-    path('', index_view, name='index'),
-    path('create', create_view, name='create_index')
+    path('', MainTemplateView.as_view(), name='main_page'),
+    path('student/list', StudentListView.as_view(), name='student_list_page')
 ]

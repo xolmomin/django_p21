@@ -40,6 +40,8 @@ models.py  + methods
 class meta
 
 
+https://bootdey.com/snippets/view/product-list
+
 
 https://bootdey.com/snippets/view/Shop-product-list
 (category bilan, + search, form)
@@ -57,5 +59,23 @@ resources
 6. https://docs.djangoproject.com/en/5.0/ref/django-admin/ (commands)
 
 
-django mptt (tree)
+
+crud, model + django mptt, django mptt, jsonb, fixtures
+
+
+homework
+1. student, teacher, department, subject list view larini ishlidigan qilish
+2. student, teacher, department, subject larni detail page ni qilish
+3. teacher, student rasmlarini ham chiqadigan qilish (default ni ham qoshish kk)
+
+
+
+Optional
+1. pagination
+2. update page
+3. add page
+
+
+1. odammi yoqmi aniqlash
+
 

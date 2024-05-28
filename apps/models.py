@@ -1,11 +1,20 @@
-import uuid
-
-from django.contrib.postgres.functions import RandomUUID
-from django.core.validators import FileExtensionValidator
-from django.db.models import Model, CharField, ForeignKey, UUIDField, FloatField, SlugField, CASCADE, ImageField, \
-    DateTimeField, BooleanField
+from django.contrib.auth.models import AbstractUser
+from django.db.models import Model, CharField, ForeignKey, FloatField, SlugField, CASCADE, DateTimeField, TextField, \
+    PositiveSmallIntegerField, \
+    TextChoices
 from django.db.models.functions import Now
 from django.utils.text import slugify
+
+
+class User(AbstractUser):
+    class Type(TextChoices):
+        ADMIN = 'admin', 'Admin'
+        MODERATOR = 'moderator', 'Moderator'
+        TEACHER = 'teacher', 'Teacher'
+        STUDENT = 'student', 'Student'
+
+    phone = CharField(max_length=25, blank=True, null=True)
+    type = CharField(max_length=15, choices=Type.choices, default=Type.STUDENT)
 
 
 class SlugBaseModel(Model):
@@ -26,48 +35,21 @@ class SlugBaseModel(Model):
 
 
 class Category(SlugBaseModel):
-    pass
+    parent = ForeignKey('self', CASCADE, null=True, blank=True)
 
     class Meta:
-        ordering = '-id', 'name'
         verbose_name = 'Kategoriya'
         verbose_name_plural = 'Kategoriyalar'
 
 
 class Product(SlugBaseModel):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, db_default=RandomUUID(), editable=False)
-    price = FloatField(help_text="Product narxi uzb so'mida")
+    price = FloatField()
     category = ForeignKey('apps.Category', CASCADE)
-    is_premium = BooleanField(default=False, help_text="Premium userlar uchun")
+    description = TextField(blank=True, null=True)
+    discount = PositiveSmallIntegerField(default=0, help_text='Chegirma foizi')
     updated_at = DateTimeField(auto_now_add=True, db_default=Now())
     created_at = DateTimeField(auto_now=True, db_default=Now())
 
     @property
-    def show_price(self):
-        return int(self.price + 5)
-
-
-class ProxyProduct(Product):
-    class Meta:
-        proxy = True
-        verbose_name = 'Product'
-        verbose_name_plural = 'Premium Products'
-
-
-class ProductImage(Model):
-    id = UUIDField(primary_key=True, db_default=RandomUUID(), editable=False)
-    image = ImageField(upload_to='products/%Y/%m/%d/', validators=[FileExtensionValidator(['png', 'jpg', 'jpeg'])])
-    product = ForeignKey('apps.Product', CASCADE)
-    updated_at = DateTimeField(auto_now_add=True, db_default=Now())
-    created_at = DateTimeField(auto_now=True, db_default=Now())
-
-    # def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-    #     if self.id:
-    #         product_image = ProductImage.objects.filter(id=self.id).first()
-    #         if product_image.image.name != self.image.name:
-    #             product_image.image.delete(False)
-    #     super().save(force_insert, force_update, using, update_fields)
-
-    def delete(self, using=None, keep_parents=False):
-        self.image.delete(False)
-        return super().delete(using, keep_parents)
+    def current_price(self):
+        return self.price - (self.price * self.discount) // 100

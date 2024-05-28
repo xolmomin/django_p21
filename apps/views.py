@@ -1,28 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
+from django.views.generic import TemplateView, ListView
+from math import ceil
 
-from apps.models import Product, Category
-
-
-def index_view(request):
-    category = request.GET.get('category')
-    if category:
-        products = Product.objects.filter(category__slug=category)
-    else:
-        products = Product.objects.all()
-    context = {
-        "products": products,
-        "categories": Category.objects.all(),
-    }
-    return render(request, 'apps/index.html', context)
+from apps.models import Product, Category, User
 
 
-def create_view(request):
-    if request.method == 'GET':
-        return render(request, 'apps/create.html')
+class MainTemplateView(TemplateView):
+    template_name = 'apps/index.html'
 
-    name = request.POST.get('name')
-    price = request.POST.get('price')
-    category = request.POST.get('category')
-    Product.objects.create(name=name, price=price, category_id=category)
-    return redirect(reverse('index'))
+
+class StudentListView(ListView):
+    queryset = User.objects.filter(type=User.Type.STUDENT)
+    template_name = 'apps/student/list.html'
+    context_object_name = 'students'
