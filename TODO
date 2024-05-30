@@ -79,3 +79,24 @@ Optional
 1. odammi yoqmi aniqlash
 
 
+
+
+core,config,root
+
+
+
+resources
+1. https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#date
+
+
+
+homework
+1. student, teacher, department, subject list view larini ishlidigan qilish
+2. student, teacher, department, subject larni detail page ni qilish
+3. teacher, student rasmlarini ham chiqadigan qilish (default ni ham qoshish kk)
+4. barcha list page lar uchun pagination
+
+5. jazzmin + login,register
+
+
+

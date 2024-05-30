@@ -21,56 +21,147 @@
             <div class="col-sm-12">
                 <div class="card card-table">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-center mb-0 datatable">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Class</th>
-                                    <th>DOB</th>
-                                    <th>Parent Name</th>
-                                    <th>Mobile Number</th>
-                                    <th>Address</th>
-                                    <th class="text-right">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for student in students %}
-                                    <tr>
-                                        <td>{{ student.pk }}</td>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a href="student-details.html" class="avatar avatar-sm mr-2"><img
-                                                        class="avatar-img rounded-circle"
-                                                        src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a>
-                                                <a href="student-details.html">{{ student.full_name }}</a>
-                                            </h2>
-                                        </td>
-                                        <td>10 A</td>
-                                        <td>2 Feb 2002</td>
-                                        <td>Jeffrey Wong</td>
-                                        <td>097 3584 5870</td>
-                                        <td>911 Deer Ridge Drive,USA</td>
-                                        <td class="text-right">
-                                            <div class="actions">
-                                                <a href="edit-student.html" class="btn btn-sm bg-success-light mr-2">
-                                                    <i class="fas fa-pen"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm bg-danger-light">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
 
-                                </tbody>
-                            </table>
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show
+                                            <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                                    class="custom-select custom-select-sm form-control form-control-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries</label></div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-hover table-center mb-0 datatable dataTable no-footer"
+                                               id="DataTables_Table_0" role="grid"
+                                               aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="ID: activate to sort column descending"
+                                                    style="width: 60.1562px;">ID
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Name: activate to sort column ascending"
+                                                    style="width: 205.828px;">Name
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Class: activate to sort column ascending"
+                                                    style="width: 54.1094px;">Class
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="DOB: activate to sort column ascending"
+                                                    style="width: 93.8438px;">DOB
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Parent Name: activate to sort column ascending"
+                                                    style="width: 126.094px;">Parent Name
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Mobile Number: activate to sort column ascending"
+                                                    style="width: 141.656px;">Mobile Number
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Address: activate to sort column ascending"
+                                                    style="width: 378.281px;">Address
+                                                </th>
+                                                <th class="text-right sorting" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-label="Action: activate to sort column ascending"
+                                                    style="width: 86.0312px;">Action
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for student in students %}
+                                                <tr role="row" class="odd">
+                                                    <td class="sorting_1">PRE1234</td>
+                                                    <td>
+                                                        <h2 class="table-avatar">
+                                                            <a href="{% url 'student_detail_page' student.pk %}"
+                                                               class="avatar avatar-sm mr-2"><img
+                                                                    class="avatar-img rounded-circle"
+                                                                    src="{{ student.image.url }}"
+                                                                    alt="User Image"></a>
+                                                            <a href="{% url 'student_detail_page' student.pk %}">{{ student.get_full_name}}</a>
+                                                        </h2>
+                                                    </td>
+                                                    <td>10 B</td>
+                                                    <td>26 Apr 1994</td>
+                                                    <td>Stephen Marley</td>
+                                                    <td>077 3499 9959</td>
+                                                    <td>86 Lamphey Road, Thelnetham</td>
+                                                    <td class="text-right">
+                                                        <div class="actions">
+                                                            <a href="{% url 'student_edit_page' student.pk %}"
+                                                               class="btn btn-sm bg-success-light mr-2">
+                                                                <i class="fas fa-pen"></i>
+                                                            </a>
+                                                            <a href="{% url 'student_delete_page' student.pk %}" class="btn btn-sm bg-danger-light">
+                                                                <i class="fas fa-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5">
+                                        <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
+                                             aria-live="polite">Showing 1 to 10 of 11 entries
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers"
+                                             id="DataTables_Table_0_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled"
+                                                    id="DataTables_Table_0_previous"><a href="#"
+                                                                                        aria-controls="DataTables_Table_0"
+                                                                                        data-dt-idx="0" tabindex="0"
+                                                                                        class="page-link">Previous</a>
+                                                </li>
+                                                <li class="paginate_button page-item active"><a href="#"
+                                                                                                aria-controls="DataTables_Table_0"
+                                                                                                data-dt-idx="1"
+                                                                                                tabindex="0"
+                                                                                                class="page-link">1</a>
+                                                </li>
+                                                <li class="paginate_button page-item "><a href="#"
+                                                                                          aria-controls="DataTables_Table_0"
+                                                                                          data-dt-idx="2" tabindex="0"
+                                                                                          class="page-link">2</a></li>
+                                                <li class="paginate_button page-item next" id="DataTables_Table_0_next">
+                                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3"
+                                                       tabindex="0" class="page-link">Next</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 {% endblock %}
