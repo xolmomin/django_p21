@@ -1,6 +1,7 @@
 from django.urls import path
+
 from apps.views import MainTemplateView, StudentDeleteView, StudentUpdateView, StudentListView, StudentDetailView, \
-    TeacherListView, StudentCreateView
+    TeacherListView, StudentCreateView, RegisterView, LogoutView, CustomLoginView
 
 urlpatterns = [
     path('', MainTemplateView.as_view(), name='main_page'),
@@ -12,4 +13,8 @@ urlpatterns = [
     path('student/list', StudentListView.as_view(), name='student_list_page'),
 
     path('teacher/list', TeacherListView.as_view(), name='teacher_list_page'),
+
+    path('logout', LogoutView.as_view(), name='logout_page'),
+    path('login', CustomLoginView.as_view(), name='login_page'),
+    path('register', RegisterView.as_view(), name='register_page'),
 ]

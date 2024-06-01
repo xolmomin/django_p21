@@ -128,39 +128,75 @@
                                         </table>
                                     </div>
                                 </div>
+
+
                                 <div class="row">
                                     <div class="col-sm-12 col-md-5">
                                         <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
-                                             aria-live="polite">Showing 1 to 10 of 11 entries
+                                             aria-live="polite">Showing {{ page_obj.start_index }}
+                                            to {{ page_obj.end_index }} of
+                                            {{ page_obj.paginator.count }} entries
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-7">
                                         <div class="dataTables_paginate paging_simple_numbers"
                                              id="DataTables_Table_0_paginate">
                                             <ul class="pagination">
-                                                <li class="paginate_button page-item previous disabled"
-                                                    id="DataTables_Table_0_previous"><a href="#"
-                                                                                        aria-controls="DataTables_Table_0"
-                                                                                        data-dt-idx="0" tabindex="0"
-                                                                                        class="page-link">Previous</a>
+
+                                                {% if page_obj.has_previous %}
+                                                    <li class="paginate_button page-item previous"
+                                                        id="DataTables_Table_0_previous">
+                                                        <a href="?page={{ page_obj.previous_page_number }}"
+                                                           aria-controls="DataTables_Table_0" data-dt-idx="0"
+                                                           tabindex="0" class="page-link">
+                                                            Previous
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% if page_obj.has_previous %}
+                                                    <li class="paginate_button page-item ">
+                                                        <a href="?page={{ page_obj.previous_page_number }}"
+                                                           aria-controls="DataTables_Table_0" data-dt-idx="2"
+                                                           tabindex="0" class="page-link">
+                                                            {{ page_obj.number|add:-1 }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+                                                <li class="paginate_button page-item active disabled">
+                                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1"
+                                                       tabindex="0" class="page-link">
+                                                        {{ page_obj.number }}
+                                                    </a>
                                                 </li>
-                                                <li class="paginate_button page-item active"><a href="#"
-                                                                                                aria-controls="DataTables_Table_0"
-                                                                                                data-dt-idx="1"
-                                                                                                tabindex="0"
-                                                                                                class="page-link">1</a>
-                                                </li>
-                                                <li class="paginate_button page-item "><a href="#"
-                                                                                          aria-controls="DataTables_Table_0"
-                                                                                          data-dt-idx="2" tabindex="0"
-                                                                                          class="page-link">2</a></li>
-                                                <li class="paginate_button page-item next" id="DataTables_Table_0_next">
-                                                    <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3"
-                                                       tabindex="0" class="page-link">Next</a></li>
+                                                {% if page_obj.has_next %}
+                                                    <li class="paginate_button page-item ">
+                                                        <a href="?page={{ page_obj.next_page_number }}"
+                                                           aria-controls="DataTables_Table_0" data-dt-idx="2"
+                                                           tabindex="0" class="page-link">
+                                                            {{ page_obj.number|add:1 }}
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% if page_obj.has_next %}
+                                                    <li class="paginate_button page-item next"
+                                                        id="DataTables_Table_0_next">
+                                                        <a href="?page={{ page_obj.next_page_number }}"
+                                                           aria-controls="DataTables_Table_0" data-dt-idx="3"
+                                                           tabindex="0" class="page-link">
+                                                            Next
+                                                        </a>
+                                                    </li>
+                                                {% endif %}
+
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>

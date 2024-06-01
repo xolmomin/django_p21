@@ -95,8 +95,16 @@ homework
 1. student, teacher, department, subject CRUD qilish
 2. teacher, student rasmlarini ham chiqadigan qilish (default ni ham qoshish kk)
 3. barcha list page lar uchun pagination
-
+4. students ni bosganda studentlar listi chiqadigan qilish kk (dropdown ni olish tashash)
 5. jazzmin + login,register
 
 
 
+
+
+
+register notification (email)
+forgot password
+change password
+activation link
+celery
