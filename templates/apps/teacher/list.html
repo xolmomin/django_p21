@@ -1,0 +1,438 @@
+{% extends 'apps/base.html' %}
+
+{% block main_content %}
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Teachers</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Teachers</li>
+                    </ul>
+                </div>
+                <div class="col-auto text-right float-right ml-auto">
+                    <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
+                    <a href="add-teacher.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show
+                                            <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                                    class="custom-select custom-select-sm form-control form-control-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries</label></div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-hover table-center mb-0 datatable dataTable no-footer"
+                                               id="DataTables_Table_0" role="grid"
+                                               aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="ID: activate to sort column descending"
+                                                    style="width: 55.2344px;">ID
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Name: activate to sort column ascending"
+                                                    style="width: 195.203px;">Name
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Class: activate to sort column ascending"
+                                                    style="width: 49.9844px;">Class
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Gender: activate to sort column ascending"
+                                                    style="width: 65.7188px;">Gender
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Subject: activate to sort column ascending"
+                                                    style="width: 96.4219px;">Subject
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Section: activate to sort column ascending"
+                                                    style="width: 66.5469px;">Section
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Mobile Number: activate to sort column ascending"
+                                                    style="width: 133.781px;">Mobile Number
+                                                </th>
+                                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Address: activate to sort column ascending"
+                                                    style="width: 360.266px;">Address
+                                                </th>
+                                                <th class="text-right sorting" tabindex="0"
+                                                    aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                    aria-label="Action: activate to sort column ascending"
+                                                    style="width: 80.8438px;">Action
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">PRE1234</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-11.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Nathan Humphries</a>
+                                                    </h2>
+                                                </td>
+                                                <td>10</td>
+                                                <td>Male</td>
+                                                <td>Biology</td>
+                                                <td>A</td>
+                                                <td>077 3499 9959</td>
+                                                <td>86 Lamphey Road, Thelnetham</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">PRE1434</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-08.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Vincent</a>
+                                                    </h2>
+                                                </td>
+                                                <td>10</td>
+                                                <td>Male</td>
+                                                <td>Mathematics</td>
+                                                <td>C</td>
+                                                <td>402 221 7523</td>
+                                                <td>3979 Ashwood Drive, Omaha</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">PRE1534</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-06.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Lois&nbsp;A</a>
+                                                    </h2>
+                                                </td>
+                                                <td>10</td>
+                                                <td>Female</td>
+                                                <td>English</td>
+                                                <td>B</td>
+                                                <td>413 289 1314</td>
+                                                <td>2844 Leverton Cove Road, Palmer</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">PRE2143</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-04.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Levell&nbsp;Scott</a>
+                                                    </h2>
+                                                </td>
+                                                <td>10</td>
+                                                <td>Male</td>
+                                                <td>Science</td>
+                                                <td>B</td>
+                                                <td>026 7318 4366</td>
+                                                <td>P.O. Box: 41, Gaborone</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">PRE2153</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-07.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Calvin</a>
+                                                    </h2>
+                                                </td>
+                                                <td>9</td>
+                                                <td>Male</td>
+                                                <td>Mathematics</td>
+                                                <td>C</td>
+                                                <td>701 753 3810</td>
+                                                <td>1900 Hidden Meadow Drive, Crete</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">PRE2209</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-02.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Aaliyah</a>
+                                                    </h2>
+                                                </td>
+                                                <td>10</td>
+                                                <td>Female</td>
+                                                <td>Mathematics</td>
+                                                <td>A</td>
+                                                <td>097 3584 5870</td>
+                                                <td>911 Deer Ridge Drive,USA</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">PRE2213</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-03.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Malynne</a>
+                                                    </h2>
+                                                </td>
+                                                <td>8</td>
+                                                <td>Female</td>
+                                                <td>Physics</td>
+                                                <td>A</td>
+                                                <td>242 362 3100</td>
+                                                <td>Bacardi Rd P.O. Box N-4880, New Providence</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">PRE2345</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-09.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Kozma&nbsp;&nbsp;Tatari</a>
+                                                    </h2>
+                                                </td>
+                                                <td>9</td>
+                                                <td>Female</td>
+                                                <td>Science</td>
+                                                <td>A</td>
+                                                <td>04 2239 968</td>
+                                                <td>Rruga E Kavajes, Condor Center, Tirana</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td class="sorting_1">PRE2365</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-10.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">John Chambers</a>
+                                                    </h2>
+                                                </td>
+                                                <td>11</td>
+                                                <td>Male</td>
+                                                <td>Botony</td>
+                                                <td>B</td>
+                                                <td>870 663 2334</td>
+                                                <td>4667 Sunset Drive, Pine Bluff</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">PRE2431</td>
+                                                <td>
+                                                    <h2 class="table-avatar">
+                                                        <a href="teacher-details.html"
+                                                           class="avatar avatar-sm mr-2"><img
+                                                                class="avatar-img rounded-circle"
+                                                                src="assets/img/profiles/avatar-05.jpg"
+                                                                alt="User Image"></a>
+                                                        <a href="teacher-details.html">Minnie</a>
+                                                    </h2>
+                                                </td>
+                                                <td>11</td>
+                                                <td>Male</td>
+                                                <td>History</td>
+                                                <td>C</td>
+                                                <td>952 512 4909</td>
+                                                <td>4771 Oral Lake Road, Golden Valley</td>
+                                                <td class="text-right">
+                                                    <div class="actions">
+                                                        <a href="edit-teacher.html"
+                                                           class="btn btn-sm bg-success-light mr-2">
+                                                            <i class="fas fa-pen"></i>
+                                                        </a>
+                                                        <a href="#" class="btn btn-sm bg-danger-light">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-5">
+                                        <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
+                                             aria-live="polite">Showing 1 to 10 of 10 entries
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers"
+                                             id="DataTables_Table_0_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled"
+                                                    id="DataTables_Table_0_previous"><a href="#"
+                                                                                        aria-controls="DataTables_Table_0"
+                                                                                        data-dt-idx="0" tabindex="0"
+                                                                                        class="page-link">Previous</a>
+                                                </li>
+                                                <li class="paginate_button page-item active"><a href="#"
+                                                                                                aria-controls="DataTables_Table_0"
+                                                                                                data-dt-idx="1"
+                                                                                                tabindex="0"
+                                                                                                class="page-link">1</a>
+                                                </li>
+                                                <li class="paginate_button page-item next disabled"
+                                                    id="DataTables_Table_0_next"><a href="#"
+                                                                                    aria-controls="DataTables_Table_0"
+                                                                                    data-dt-idx="2" tabindex="0"
+                                                                                    class="page-link">Next</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

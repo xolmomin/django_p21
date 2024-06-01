@@ -1,14 +1,34 @@
 {% extends 'apps/base.html' %}
 
+{% block title %}
+    {% if student %}
+        Edit Students
+    {% else %}
+        Add Students
+    {% endif %}
+{% endblock %}
+
 {% block main_content %}
     <div class="content container-fluid">
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Edit Students</h3>
+                    <h3 class="page-title">
+                        {% if student %}
+                            Edit Students
+                        {% else %}
+                            Add Students
+                        {% endif %}
+                    </h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="students.html">Students</a></li>
-                        <li class="breadcrumb-item active">Edit Students</li>
+                        <li class="breadcrumb-item active">
+                            {% if student %}
+                                Edit Students
+                            {% else %}
+                                Add Students
+                            {% endif %}
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -17,8 +37,14 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form method="post" action="{% url 'student_edit_page' student.id %}" enctype="multipart/form-data">
+                        <form method="post" action="
+
+
+
+                                {% if student %}{% url 'student_edit_page' student.id %}{% else %}{% url 'student_add_page' %}{% endif %}"
+                              enctype="multipart/form-data">
                             {% csrf_token %}
+                            <input type="text" name="type" hidden value="student">
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="form-title"><span>Student Information</span></h5>
@@ -26,13 +52,29 @@
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" name="first_name" value="{{ student.first_name }}">
+                                        <input type="text" class="form-control" name="first_name"
+                                               value="{{ student.first_name }}">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" name="last_name"  value="{{ student.last_name }}">
+                                        <input type="text" class="form-control" name="last_name"
+                                               value="{{ student.last_name }}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" name="username" class="form-control"
+                                               value="{{ student.username }}">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password" class="form-control" value="123456"
+                                               readonly>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">

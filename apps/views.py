@@ -1,7 +1,7 @@
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView, CreateView
 
 from apps.models import User
 
@@ -22,6 +22,14 @@ class StudentDetailView(DetailView):
     context_object_name = 'student'
 
 
+class StudentCreateView(CreateView):
+    queryset = User.objects.filter(type=User.Type.STUDENT)
+    fields = 'username', 'gender', 'type', 'first_name', 'last_name', 'birth_date', 'image', 'password'
+    template_name = 'apps/student/edit.html'
+    success_url = reverse_lazy('student_list_page')
+    context_object_name = 'student'
+
+
 class StudentDeleteView(View):
 
     def get(self, request, pk):
@@ -37,3 +45,7 @@ class StudentUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('student_edit_page', kwargs={'pk': self.kwargs.get(self.pk_url_kwarg)})
+
+
+class TeacherListView(TemplateView):
+    template_name = 'apps/teacher/list.html'

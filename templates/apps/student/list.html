@@ -1,5 +1,9 @@
 {% extends 'apps/base.html' %}
 
+{% block title %}
+    Students list
+{% endblock %}
+
 {% block main_content %}
     <div class="content container-fluid">
         <div class="page-header">
@@ -13,7 +17,7 @@
                 </div>
                 <div class="col-auto text-right float-right ml-auto">
                     <a href="#" class="btn btn-outline-primary mr-2"><i class="fas fa-download"></i> Download</a>
-                    <a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                    <a href="{% url 'student_add_page' %}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                 </div>
             </div>
         </div>
@@ -97,7 +101,7 @@
                                                                     class="avatar-img rounded-circle"
                                                                     src="{{ student.image.url }}"
                                                                     alt="User Image"></a>
-                                                            <a href="{% url 'student_detail_page' student.pk %}">{{ student.get_full_name}}</a>
+                                                            <a href="{% url 'student_detail_page' student.pk %}">{{ student.get_full_name }}</a>
                                                         </h2>
                                                     </td>
                                                     <td>10 B</td>
@@ -111,7 +115,8 @@
                                                                class="btn btn-sm bg-success-light mr-2">
                                                                 <i class="fas fa-pen"></i>
                                                             </a>
-                                                            <a href="{% url 'student_delete_page' student.pk %}" class="btn btn-sm bg-danger-light">
+                                                            <a href="{% url 'student_delete_page' student.pk %}"
+                                                               class="btn btn-sm bg-danger-light">
                                                                 <i class="fas fa-trash"></i>
                                                             </a>
                                                         </div>
