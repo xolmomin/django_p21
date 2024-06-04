@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField, TextChoices, ImageField, DateField, Model
+from django.db.models import CharField, TextChoices, ImageField, DateField, Model, EmailField, BooleanField
 
 
 class User(AbstractUser):
@@ -18,3 +18,10 @@ class User(AbstractUser):
     image = ImageField(upload_to='users/%Y/%m/%d/', default='users/default.png')
     gender = CharField(max_length=15, default=Gender.MALE)
     birth_date = DateField(null=True, blank=True)
+    email = EmailField(unique=True)
+    is_active = BooleanField(default=False)
+
+    class Meta:
+        unique_together = [
+            ('email', 'is_active')
+        ]

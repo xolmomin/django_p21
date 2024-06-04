@@ -102,16 +102,35 @@ homework
 
 
 
-
+celery
 register notification (email)
+
+1. one time link (verification)
+2. tlg 6xonali kod bn (login)
+
+
+botir@gmail.com (False)
+botir@gmail.com (False)
+
+
 forgot password
 change password
 activation link
-celery
 cache
 (email + 1minute auth)
 
 jazzmin, ckeditor
 
 
+
+cmds
+docker run --name redis_container -p 6379:6379 -d redis:alpine
+
+celery -A root worker -l INFO
+
+
+
+1. safe html code
+2. pochtaga 6xonalik tasdiqlash kod yuborish orqali tasdiqlash
+2. 42.uz dagidek login qilish imkoniyati
 

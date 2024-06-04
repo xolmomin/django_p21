@@ -2,6 +2,7 @@ from django.urls import path
 
 from apps.views import MainTemplateView, StudentDeleteView, StudentUpdateView, StudentListView, StudentDetailView, \
     TeacherListView, StudentCreateView, RegisterView, LogoutView, CustomLoginView
+from apps.views import VerifyEmailConfirm
 
 urlpatterns = [
     path('', MainTemplateView.as_view(), name='main_page'),
@@ -17,4 +18,5 @@ urlpatterns = [
     path('logout', LogoutView.as_view(), name='logout_page'),
     path('login', CustomLoginView.as_view(), name='login_page'),
     path('register', RegisterView.as_view(), name='register_page'),
+    path('verify-email-confirm/<uidb64>/<token>', VerifyEmailConfirm.as_view(), name='verify-email-confirm'),
 ]

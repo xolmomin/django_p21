@@ -30,6 +30,7 @@ class StudentUserModelAdmin(UserAdmin):
         ),
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
+
     def get_queryset(self, request):
         return super().get_queryset(request).filter(type=StudentUser.Type.STUDENT)
 
@@ -38,6 +39,10 @@ class StudentUserModelAdmin(UserAdmin):
 class TeacherUserModelAdmin(UserAdmin):
     def get_queryset(self, request):
         return super().get_queryset(request).filter(type=TeacherUser.Type.TEACHER)
+
+    def save_model(self, request, obj, form, change):
+        obj.type = TeacherUser.Type.TEACHER
+        super().save_model(request, obj, form, change)
 
 
 @admin.register(Category)

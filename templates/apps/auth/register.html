@@ -7,6 +7,15 @@
 {% block main_content %}
     <div class="login-right">
         <div class="login-right-wrap">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger">
+                        {{ message|safe|escape }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <h1>Register</h1>
             <p class="account-subtitle">Access to our dashboard</p>
 
@@ -16,10 +25,13 @@
                     <input class="form-control" type="text" name="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="password1" placeholder="Password">
+                    <input class="form-control" type="email" name="email" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="password2" placeholder="Confirm Password">
+                    <input class="form-control" type="password" name="password1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password2" placeholder="Confirm Password">
                 </div>
                 <div class="form-group mb-0">
                     <button class="btn btn-primary btn-block" type="submit">Register</button>
