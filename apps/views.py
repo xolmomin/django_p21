@@ -10,7 +10,7 @@ from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView
 
 from apps.forms import CustomUserCreationForm
-from apps.models import User
+from apps.models import User, CustomProduct
 from apps.tokens import account_activation_token
 from apps.utils import generate_one_time_verification
 
@@ -107,3 +107,9 @@ class VerifyEmailConfirm(View):
         else:
             messages.warning(request, 'The link is invalid.')
         return redirect('register_page')
+
+
+class CustomProductListView(ListView):
+    queryset = CustomProduct.objects.all()
+    template_name = 'apps/product-list.html'
+    context_object_name = 'products'

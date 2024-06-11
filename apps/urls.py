@@ -1,10 +1,11 @@
 from django.urls import path
 
 from apps.views import MainTemplateView, StudentDeleteView, StudentUpdateView, StudentListView, StudentDetailView, \
-    TeacherListView, StudentCreateView, RegisterView, LogoutView, CustomLoginView
+    TeacherListView, StudentCreateView, RegisterView, LogoutView, CustomLoginView, CustomProductListView
 from apps.views import VerifyEmailConfirm
 
 urlpatterns = [
+    path('task', CustomProductListView.as_view(), name='custom_product_list'),
     path('', MainTemplateView.as_view(), name='main_page'),
 
     path('student/add', StudentCreateView.as_view(), name='student_add_page'),

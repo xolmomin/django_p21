@@ -116,10 +116,8 @@ botir@gmail.com (False)
 forgot password
 change password
 activation link
-cache
-(email + 1minute auth)
 
-jazzmin, ckeditor
+(email + 1minute auth)
 
 
 
@@ -131,6 +129,18 @@ celery -A root worker -l INFO
 
 
 1. safe html code
+
+
+
+0. cache
+1. django mptt, jsonb, fixtures
+4. jazzmin, ckeditor
+
 2. pochtaga 6xonalik tasdiqlash kod yuborish orqali tasdiqlash
-2. 42.uz dagidek login qilish imkoniyati
+3. 42.uz dagidek login qilish imkoniyati (aiogram, pytelegrambotapi)
+5. rabbitmq, flower, minio, celery beat (result)
+
+
+region, district, country, zip_code, currency
+
 

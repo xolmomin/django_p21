@@ -2,7 +2,10 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
-from apps.models import Product, Category, StudentUser, TeacherUser
+from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
+
+from apps.models import Product, Category, StudentUser, TeacherUser, CustomProduct
+from apps.models.product import CustomCategory
 
 
 @admin.register(Product)
@@ -48,3 +51,13 @@ class TeacherUserModelAdmin(UserAdmin):
 @admin.register(Category)
 class CategoryModelAdmin(admin.ModelAdmin):
     search_fields = 'name',
+
+
+@admin.register(CustomProduct)
+class CustomProductModelAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(CustomCategory)
+class CustomCategoryModelAdmin(DraggableMPTTAdmin):
+    mptt_level_indent = 20

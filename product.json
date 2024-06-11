@@ -1,0 +1,28 @@
+[
+  {
+    "model": "apps.customproduct",
+    "pk": 1,
+    "fields": {
+      "name": "redmi",
+      "image": "products/2024/06/11/20220106_ico_0.png",
+      "price": 15000,
+      "properties": {
+        "Xotirasi": "8Gb",
+        "Kamerasi": "128MP",
+        "Rangi": "Malla"
+      },
+      "created_at": "2024-06-11T12:30:32.409Z"
+    }
+  },
+  {
+    "model": "apps.customproduct",
+    "pk": 2,
+    "fields": {
+      "name": "iphone",
+      "image": "products/2024/06/11/images.jpeg",
+      "price": 25000,
+      "properties": {},
+      "created_at": "2024-06-11T12:27:14.659Z"
+    }
+  }
+]
