@@ -138,9 +138,13 @@ celery -A root worker -l INFO
 
 2. pochtaga 6xonalik tasdiqlash kod yuborish orqali tasdiqlash
 3. 42.uz dagidek login qilish imkoniyati (aiogram, pytelegrambotapi)
-5. rabbitmq, flower, minio, celery beat (result)
-
+5. rabbitmq, flower, celery result, celery beat, minio
 
 region, district, country, zip_code, currency
+
+rabbitmq (Message Broker)
+docker run -p 5672:5672 -d rabbitmq:3-management
+
+redis
 
 

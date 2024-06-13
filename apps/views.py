@@ -2,12 +2,19 @@ from django.contrib import messages
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+# Avoid shadowing the login() and logout() views below.
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, resolve_url
 from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.debug import sensitive_post_parameters
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic.base import TemplateView
 
 from apps.forms import CustomUserCreationForm
 from apps.models import User, CustomProduct
@@ -66,11 +73,20 @@ class RegisterView(CreateView):
     template_name = 'apps/auth/register.html'
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login_page')
+    redirect_authenticated_user = True
+
+    @method_decorator(sensitive_post_parameters())
+    @method_decorator(csrf_protect)
+    @method_decorator(never_cache)
+    def dispatch(self, request, *args, **kwargs):
+        if self.redirect_authenticated_user and self.request.user.is_authenticated:
+            return HttpResponseRedirect(self.success_url)
+        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         user = form.save()
         generate_one_time_verification(self.request, user)
-        text = "<h3>An email has been sent with instructions to verify your email</h3>"
+        text = "<h5>An email has been sent with instructions to verify your email</h5>"
         messages.add_message(self.request, messages.SUCCESS, text)
         return super().form_valid(form)
 

@@ -4,7 +4,7 @@ from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 from mptt.admin import MPTTModelAdmin, DraggableMPTTAdmin
 
-from apps.models import Product, Category, StudentUser, TeacherUser, CustomProduct
+from apps.models import User, Product, Category, StudentUser, TeacherUser, CustomProduct
 from apps.models.product import CustomCategory
 
 
@@ -14,11 +14,11 @@ class ProductModelAdmin(admin.ModelAdmin):
     autocomplete_fields = 'category',
 
 
-@admin.register(StudentUser)
-class StudentUserModelAdmin(UserAdmin):
+@admin.register(User)
+class UserModelAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("username", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name", "email", "birth_date")}),
+        (_("Personal info"), {"fields": ("first_name", "last_name", "email", "image")}),
         (
             _("Permissions"),
             {
@@ -34,18 +34,38 @@ class StudentUserModelAdmin(UserAdmin):
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(type=StudentUser.Type.STUDENT)
-
-
-@admin.register(TeacherUser)
-class TeacherUserModelAdmin(UserAdmin):
-    def get_queryset(self, request):
-        return super().get_queryset(request).filter(type=TeacherUser.Type.TEACHER)
-
-    def save_model(self, request, obj, form, change):
-        obj.type = TeacherUser.Type.TEACHER
-        super().save_model(request, obj, form, change)
+# @admin.register(StudentUser)
+# class StudentUserModelAdmin(UserAdmin):
+#     fieldsets = (
+#         (None, {"fields": ("username", "password")}),
+#         (_("Personal info"), {"fields": ("first_name", "last_name", "email", "birth_date")}),
+#         (
+#             _("Permissions"),
+#             {
+#                 "fields": (
+#                     "is_active",
+#                     "is_staff",
+#                     "is_superuser",
+#                     "groups",
+#                     "user_permissions",
+#                 ),
+#             },
+#         ),
+#         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
+#     )
+#
+#     def get_queryset(self, request):
+#         return super().get_queryset(request).filter(type=StudentUser.Type.STUDENT)
+#
+#
+# @admin.register(TeacherUser)
+# class TeacherUserModelAdmin(UserAdmin):
+#     def get_queryset(self, request):
+#         return super().get_queryset(request).filter(type=TeacherUser.Type.TEACHER)
+#
+#     def save_model(self, request, obj, form, change):
+#         obj.type = TeacherUser.Type.TEACHER
+#         super().save_model(request, obj, form, change)
 
 
 @admin.register(Category)
